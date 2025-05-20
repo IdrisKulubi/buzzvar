@@ -113,6 +113,9 @@ importers:
       drizzle-orm:
         specifier: ^0.43.1
         version: 0.43.1(@neondatabase/serverless@1.0.0)(@types/pg@8.15.2)(pg@8.16.0)(postgres@3.4.5)
+      drizzle-zod:
+        specifier: ^0.8.0
+        version: 0.8.0(drizzle-orm@0.43.1(@neondatabase/serverless@1.0.0)(@types/pg@8.15.2)(pg@8.16.0)(postgres@3.4.5))(zod@3.25.7)
       embla-carousel-react:
         specifier: ^8.6.0
         version: 8.6.0(react@19.1.0)
@@ -2165,6 +2168,12 @@ packages:
         optional: true
       sqlite3:
         optional: true
+
+  drizzle-zod@0.8.0:
+    resolution: {integrity: sha512-nt8tzHD5zF+zgvVna00ZuTq7eIvM2fDeQfcO5/QFqombQSBb7RU/zp69vB4IM8DbRi2ejNj/raOdE/XTTLl5/g==}
+    peerDependencies:
+      drizzle-orm: '>=0.36.0'
+      zod: ^3.25.0
 
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
@@ -5252,6 +5261,11 @@ snapshots:
       '@types/pg': 8.15.2
       pg: 8.16.0
       postgres: 3.4.5
+
+  drizzle-zod@0.8.0(drizzle-orm@0.43.1(@neondatabase/serverless@1.0.0)(@types/pg@8.15.2)(pg@8.16.0)(postgres@3.4.5))(zod@3.25.7):
+    dependencies:
+      drizzle-orm: 0.43.1(@neondatabase/serverless@1.0.0)(@types/pg@8.15.2)(pg@8.16.0)(postgres@3.4.5)
+      zod: 3.25.7
 
   dunder-proto@1.0.1:
     dependencies:

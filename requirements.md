@@ -41,69 +41,7 @@
 
 Define Drizzle schemas and migrations for the following core entities:
 
-* **Users:**
-    * `id` (PK, UUID)
-    * `email` (UNIQUE)
-    * `password_hash` (if using email/password)
-    * `provider` (e.g., 'email', 'google')
-    * `provider_id` (e.g., Google ID)
-    * `name`
-    * `university`
-    * `created_at`
-    * `updated_at`
-* **Venues:**
-    * `id` (PK, UUID)
-    * `name`
-    * `address`
-    * `latitude`, `longitude`
-    * `phone_number`
-    * `website_url` (optional)
-    * `description`
-    * `opening_hours` (JSONB for daily schedules)
-    * `created_at`
-    * `updated_at`
-    * `owner_user_id` (FK to Users, if venue owners are also users)
-* **VenueImages:**
-    * `id` (PK, UUID)
-    * `venue_id` (FK to Venues)
-    * `image_url`
-    * `alt_text` (optional)
-    * `created_at`
-* **Menus:**
-    * `id` (PK, UUID)
-    * `venue_id` (FK to Venues)
-    * `type` (e.g., 'food', 'drinks')
-    * `content` (JSONB for structured items or TEXT for simple list/image URL for V1)
-    * `updated_at`
-* **Offers:**
-    * `id` (PK, UUID)
-    * `venue_id` (FK to Venues)
-    * `title`
-    * `description`
-    * `start_date`
-    * `end_date`
-    * `active` (boolean)
-    * `created_at`
-    * `updated_at`
-* **PartyGroups:**
-    * `id` (PK, UUID)
-    * `name`
-    * `creator_id` (FK to Users)
-    * `venue_id` (FK to Venues, nullable if venue isn't decided yet)
-    * `event_date`
-    * `event_time`
-    * `max_members`
-    * `is_public` (boolean, for browseable groups)
-    * `status` (e.g., 'open', 'closed', 'cancelled')
-    * `created_at`
-    * `updated_at`
-* **GroupMembers:** (Join table for PartyGroups and Users)
-    * `id` (PK, UUID)
-    * `group_id` (FK to PartyGroups)
-    * `user_id` (FK to Users)
-    * `status` (e.g., 'pending', 'approved', 'declined')
-    * `joined_at`
-* **GroupMessages:**
+
     * `id` (PK, UUID)
     * `group_id` (FK to PartyGroups)
     * `sender_id` (FK to Users)
