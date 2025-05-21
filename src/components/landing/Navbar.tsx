@@ -38,7 +38,7 @@ export function Navbar() {
             <Image
               src="/assets/logo/buzzvarlogo.png"
               alt="Buzzvar Logo"
-              className="h-32 w-32 dark:invert"
+              className="h-32 w-32 "
               width={84}
               height={84}
             />
