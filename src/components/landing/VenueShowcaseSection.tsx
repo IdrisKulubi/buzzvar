@@ -15,8 +15,8 @@ import {
 } from "@/components/ui/carousel";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card';
 
 // Sample venues data (in a real app, this would come from an API)
 const venues = [
@@ -34,7 +34,7 @@ const venues = [
     id: "2",
     name: "Skyline Terrace",
     type: "Rooftop Bar",
-    imageUrl: "https://images.unsplash.com/photo-1517505962134-53a8b6e4b543?q=80&w=987&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=1169&auto=format&fit=crop",
     rating: 4.5,
     location: "Central District",
     description: "Panoramic city views with craft cocktails and small plates.",
@@ -114,54 +114,73 @@ export function VenueShowcaseSection() {
               <CarouselContent className="-ml-4">
                 {venues.map((venue) => (
                   <CarouselItem key={venue.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                    <Card className="overflow-hidden border border-border/50 hover:border-primary/30 transition-all">
-                      <div className="relative h-[220px] w-full overflow-hidden">
-                        <Image
-                          src={venue.imageUrl}
-                          alt={venue.name}
-                          fill
-                          className="object-cover transition-transform hover:scale-105 duration-700"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          priority={venue.id === "1"}
-                          quality={85}
-                        />
-                        <div className="absolute top-3 left-3 z-10">
-                          <Badge variant={venue.openNow ? "default" : "outline"} className="flex items-center gap-1">
-                            <Clock className="h-3 w-3" />
-                            {venue.openNow ? "Open Now" : "Closed"}
-                          </Badge>
-                        </div>
-                        <div className="absolute top-3 right-3 z-10">
-                          <div className="flex items-center gap-1 bg-background/80 backdrop-blur-sm text-sm px-2 py-1 rounded-md">
-                            <Star className="h-3 w-3 fill-yellow-500 text-yellow-500" />
-                            <span>{venue.rating}</span>
+                    <CardContainer className="inter-var">
+                      <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto h-auto rounded-xl p-6 border">
+                        <CardItem
+                          translateZ="50"
+                          className="text-xl font-bold text-neutral-600 dark:text-white"
+                        >
+                          {venue.name}
+                        </CardItem>
+                        <CardItem
+                          as="div"
+                          translateZ="60"
+                          className="text-neutral-500 text-sm flex items-center gap-1 mt-2 dark:text-neutral-300"
+                        >
+                          <Badge variant="secondary" className="font-normal">{venue.type}</Badge>
+                          <span>•</span>
+                          <span>{venue.location}</span>
+                        </CardItem>
+                        <CardItem translateZ="100" className="w-full mt-4">
+                          <div className="relative h-[220px] w-full overflow-hidden">
+                            <Image
+                              src={venue.imageUrl}
+                              alt={venue.name}
+                              fill
+                              className="object-cover rounded-xl group-hover/card:shadow-xl"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              priority={venue.id === "1"}
+                              quality={85}
+                            />
+                            <div className="absolute top-3 left-3 z-10">
+                              <Badge variant={venue.openNow ? "default" : "outline"} className="flex items-center gap-1">
+                                <Clock className="h-3 w-3" />
+                                {venue.openNow ? "Open Now" : "Closed"}
+                              </Badge>
+                            </div>
+                            <div className="absolute top-3 right-3 z-10">
+                              <div className="flex items-center gap-1 bg-background/80 backdrop-blur-sm text-sm px-2 py-1 rounded-md">
+                                <Star className="h-3 w-3 fill-yellow-500 text-yellow-500" />
+                                <span>{venue.rating}</span>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                      <CardContent className="pt-4">
-                        <div className="space-y-1">
-                          <h3 className="font-semibold text-lg leading-tight">{venue.name}</h3>
-                          <div className="text-sm text-muted-foreground flex items-center gap-1">
-                            <Badge variant="secondary" className="font-normal">{venue.type}</Badge>
-                            <span>•</span>
-                            <span>{venue.location}</span>
-                          </div>
-                          <p className="text-sm text-muted-foreground line-clamp-2 mt-2">
-                            {venue.description}
-                          </p>
-                        </div>
-                      </CardContent>
-                      <CardFooter className="pt-0">
-                        <div className="flex justify-between w-full">
-                          <Button variant="ghost" size="sm" asChild>
-                            <Link href={`/venues/${venue.id}`}>View Details</Link>
-                          </Button>
-                          <Button variant="outline" size="icon" className="rounded-full">
+                        </CardItem>
+                        <CardItem
+                          as="p"
+                          translateZ="60"
+                          className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+                        >
+                          {venue.description}
+                        </CardItem>
+                        <div className="flex justify-between items-center mt-6">
+                          <CardItem
+                            translateZ={20}
+                            as="div"
+                            className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+                          >
+                            <Link href={`/venues/${venue.id}`}>View Details →</Link>
+                          </CardItem>
+                          <CardItem
+                            translateZ={20}
+                            as="button"
+                            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                          >
                             <PlusCircle className="h-4 w-4" />
-                          </Button>
+                          </CardItem>
                         </div>
-                      </CardFooter>
-                    </Card>
+                      </CardBody>
+                    </CardContainer>
                   </CarouselItem>
                 ))}
               </CarouselContent>

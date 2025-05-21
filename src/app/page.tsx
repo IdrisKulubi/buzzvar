@@ -8,8 +8,9 @@ import { Footer } from "@/components/landing/Footer";
 export default function Home(){
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
       <main className="flex-1">
+      <Navbar />
+
         <HeroSection />
         <FeaturesSection />
         <VenueShowcaseSection />

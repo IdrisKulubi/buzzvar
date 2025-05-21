@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
+import {  Twitter, Instagram, Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
 import { ModeToggle } from "@/components/shared/theme/mode-toggle";
@@ -40,7 +40,6 @@ const footerLinks = [
 
 const socialLinks = [
   { icon: <Twitter className="h-4 w-4" />, href: "https://twitter.com", label: "Twitter" },
-  { icon: <Github className="h-4 w-4" />, href: "https://github.com", label: "GitHub" },
   { icon: <Instagram className="h-4 w-4" />, href: "https://instagram.com", label: "Instagram" },
   { icon: <Linkedin className="h-4 w-4" />, href: "https://linkedin.com", label: "LinkedIn" },
   { icon: <Mail className="h-4 w-4" />, href: "mailto:info@buzzvar.com", label: "Email" },
