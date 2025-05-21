@@ -13,7 +13,7 @@ const twitterSite = TWITTER_SITE
 export function constructMetadata({
   title = "Buzzvar - Find Your Crew ,Find Your Club",
   description = "Buzzvar: Your university night, simplified. Find clubs, deals, and party groups instantly.",
-  image = "https://res.cloudinary.com/db0i0umxn/image/upload/v1739634861/Screenshot_2025-02-15_184329_vwfank.png",
+  image = "https://res.cloudinary.com/db0i0umxn/image/upload/v1747817579/Screenshot_2025-05-21_115227_vxo86w.png",
   icons = "/favicon.ico",
   noIndex = false,
 }: {
